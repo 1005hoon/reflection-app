@@ -8,14 +8,23 @@
 </template>
 
 <script>
+import { onMounted, onUnmounted, onUpdated } from 'vue'
 import Post from './Post'
 
 export default {
   props: ['posts'],
   components: { Post },
   setup(props) {
-    console.log(props.posts)
-  }
+    onMounted(() => {
+      console.log('on mount')
+    })
+    onUnmounted(() => {
+      console.log('on unmount')
+    })
+    onUpdated(() => {
+      console.log('on updated')
+    })
+  },
 }
 </script>
 
